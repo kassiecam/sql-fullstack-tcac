@@ -1,0 +1,21 @@
+{
+    "sqltools.connections": [
+        {
+            "connectionTimeout": 15,
+            "mssqlOptions": {
+                "appName": "SQLTools",
+                "useUTC": true,
+                "encrypt": true,
+                "trustServerCertificate": true
+            },
+            "previewLimit": 50,
+            "server": "SQLEXPRESS01",
+            "port": 1433,
+            "driver": "MSSQL",
+            "name": "SQL Server Local",
+            "database": "FJV_TCAC",
+            "username": "TCAClogin",
+            "password": "Yum@1160"
+        }
+    ]
+}
