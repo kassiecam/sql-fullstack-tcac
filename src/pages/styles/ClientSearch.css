@@ -1,0 +1,161 @@
+.clientSearch-app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 20px;
+  margin: 0;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+
+.clientSearch-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 80px;
+  width: 100%;
+  max-width: 1800px;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+.clientSearch-left {
+  flex: 0 0 25%;
+}
+
+.clientSearch-right {
+  flex: 1;
+  min-width: 0;
+  align-self: flex-start;
+  max-height: 725px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 0;
+  background: #fff;
+}
+
+.clientSearch-right table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.clientSearch-right h2 {
+  margin: 0;
+  padding: 12px 10px;
+  border-bottom: 2px solid #ddd;
+}
+
+.clientSearch-app thead th {
+  position: sticky;
+  top: 0;
+  background: #fff;
+  z-index: 100;
+  border-bottom: 2px solid #ddd;
+  padding: 10px;
+}
+
+.clientSearch-app thead tr {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  background-color: #fff;
+}
+
+.clientSearch-tableTitle {
+  text-align: left;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-bottom: 4px solid #000;
+  background: #fff;
+}
+
+.clientSearch-tableTitle-row {
+  border-bottom: 2px solid #000;
+}
+
+.clientSearch-app form {
+  background: #fff;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.clientSearch-app .input-with-dollar {
+  position: relative;
+}
+
+.clientSearch-app .input-with-dollar input {
+  padding-left: 20px;
+}
+
+.clientSearch-app .input-with-dollar::before {
+  content: "$";
+  position: absolute;
+  left: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #555;
+}
+
+.clientSearch-app input,
+.clientSearch-app select,
+.clientSearch-app button {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.clientSearch-app label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  text-align: left;
+  width: 100%;
+}
+
+.clientSearch-app button {
+  background-color: #f0f0f0;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.clientSearch-app button:hover {
+  background-color: #ddd;
+}
+
+
+.clientSearch-app table tbody tr:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+.clientSearch-app table tbody tr:nth-child(even) {
+  background-color: #ffffff;
+}
+
+.clientSearch-app table tbody tr:hover {
+  background-color: #76acdf;
+}
+
+.clientSearch-right th,
+.clientSearch-right td {
+  border: 1px solid #ccc;
+  padding: 12px 10px;
+  line-height: 1.6;
+  text-align: center;
+  vertical-align: middle;
+  word-wrap: break-word;
+  white-space: nowrap;
+  overflow: hidden;
+}
