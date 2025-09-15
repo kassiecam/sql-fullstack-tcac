@@ -6,24 +6,44 @@ async function getRequest(filters = {}) {
     try {
         let pool = await sql.connect(config);
 
-        let query = "SELECT * FROM Client WHERE 1=1";
+        let query = `
+      SELECT c.Id, c.First_Name, c.Last_Name, c.DOB, c.Income, 
+             c.Disabled, c.Disability, c.Gender_Id, g.Sex
+      FROM Client c
+      INNER JOIN Gender g ON c.Gender_Id = g.Id
+      WHERE 1=1
+    `;
+
         const request = pool.request();
 
         if (filters.Id) {
-            query += " AND Id = @Id";
+            query += " AND c.Id = @Id";
             request.input("Id", sql.Int, filters.Id);
         }
+
         if (filters.First_Name) {
-            query += " AND LOWER(First_Name) = LOWER(@First_Name)";
+            query += " AND LOWER(c.First_Name) = LOWER(@First_Name)";
             request.input("First_Name", sql.NVarChar, filters.First_Name);
         }
+
         if (filters.Last_Name) {
-            query += " AND LOWER(Last_Name) = LOWER(@Last_Name)";
+            query += " AND LOWER(c.Last_Name) = LOWER(@Last_Name)";
             request.input("Last_Name", sql.NVarChar, filters.Last_Name);
         }
+
         if (filters.DOB) {
-            query += " AND DOB = @DOB";
+            query += " AND c.DOB = @DOB";
             request.input("DOB", sql.Date, filters.DOB);
+        }
+
+        if (filters.Gender_Id !== undefined && filters.Gender_Id !== "") {
+            query += " AND c.Gender_Id = @Gender_Id";
+            request.input("Gender_Id", sql.Int, parseInt(filters.Gender_Id));
+        }
+
+        if (filters.Income !== undefined && filters.Income !== "") {
+            query += " AND c.Income = @Income";
+            request.input("Income", sql.Decimal(10, 2), parseFloat(filters.Income));
         }
 
         const result = await request.query(query);
